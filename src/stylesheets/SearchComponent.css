@@ -1,0 +1,26 @@
+.SearchCocktail {
+    display: flex;
+    flex-direction: row;
+}
+
+.ButtonInput {
+    display: flex;
+    grid-column: 2;
+    width: 90%;
+    padding: 2% 10%;
+}
+
+.ButtonInput input {
+    width: 80%;
+    flex-grow: 1;
+    padding: 0.5em 0.75em;
+}
+
+.ButtonInput button {
+    padding: 1.6em 0.75em;
+    background: gray;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    border-radius: 0 10px 10px 0;
+}
