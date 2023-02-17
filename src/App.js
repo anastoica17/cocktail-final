@@ -1,36 +1,30 @@
 import './stylesheets/App.css';
-import {Component} from "react";
 import MainMenu from "./components/MainMenu";
 import SearchComponent from "./components/SearchComponent";
+import {useState} from "react";
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.selectCocktailCategory = this.selectCocktailCategory.bind(this);
-        this.state = ({selectedCategory: ""});
+function App() {
+    const [selectedCategory, setSelectedCategory] = useState("");
+
+    const selectCocktailCategory = (selectedItem) => {
+        setSelectedCategory(selectedItem);
     }
 
-    selectCocktailCategory(selectedItem) {
-        this.setState({selectedCategory: selectedItem});
-    }
-
-    render() {
-        return (
-            <>
-                <header className="App-header">
-                    <div>Cocktails</div>
-                </header>
-                <nav>
-                    <MainMenu selectedCocktail={this.selectCocktailCategory}/>
-                </nav>
-                <main>
-                    <div id="searchComponent" className="searchComponent">
-                        <SearchComponent selectedCocktail={this.state.selectedCategory}/>
-                    </div>
-                </main>
-            </>
-        );
-    }
+    return (
+        <>
+            <header className="App-header">
+                <div>Cocktails</div>
+            </header>
+            <nav>
+                <MainMenu selectedCocktail={selectCocktailCategory}/>
+            </nav>
+            <main>
+                <div id="searchComponent" className="searchComponent">
+                    <SearchComponent selectedCocktail={selectedCategory}/>
+                </div>
+            </main>
+        </>
+    );
 }
 
 export default App;
