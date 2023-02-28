@@ -1,10 +1,10 @@
 import '../stylesheets/SearchComponent.css';
 import SearchCocktail from "./SearchCocktail";
 
-function SearchComponent(props) {
+function SearchComponent() {
     return (
         <>
-            <SearchCocktail selectedCategory={props.selectedCocktail}/>
+            <SearchCocktail/>
             <section className="SearchCocktail"/>
         </>
     );

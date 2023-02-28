@@ -1,26 +1,39 @@
 import './stylesheets/App.css';
-import MainMenu from "./components/MainMenu";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Root from "./Root";
+import Home from "./pages/Home";
+import Drinks from "./components/Drinks";
+import DrinkDetail from "./pages/DrinkDetail";
 import SearchComponent from "./components/SearchComponent";
-import {useState} from "react";
+
+const drinksCategory = createBrowserRouter([{
+    path: "/",
+    element: <Root/>,
+    children: [
+        {path: "/", element: <Home/>},
+        {
+            path: "/drinks",
+            element: <Drinks/>,
+        },
+        {
+            path: "/drinks/:drinksId",
+            element: <DrinkDetail/>
+        }
+    ]
+}]);
 
 function App() {
-    const [selectedCategory, setSelectedCategory] = useState("");
-
-    const selectCocktailCategory = (selectedItem) => {
-        setSelectedCategory(selectedItem);
-    }
-
     return (
         <>
             <header className="App-header">
                 <div>Cocktails</div>
             </header>
             <nav>
-                <MainMenu selectedCocktail={selectCocktailCategory}/>
+                <RouterProvider router={drinksCategory}/>
             </nav>
             <main>
                 <div id="searchComponent" className="searchComponent">
-                    <SearchComponent selectedCocktail={selectedCategory}/>
+                    <SearchComponent/>
                 </div>
             </main>
         </>

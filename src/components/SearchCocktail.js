@@ -2,7 +2,7 @@ import Cocktail from "./Cocktail";
 import axios from "axios";
 import {useRef, useState} from "react";
 
-function SearchCocktail(props) {
+function SearchCocktail() {
     const [drinkList, setDrinkList] = useState([]);
     const searchInput = useRef();
 
@@ -10,9 +10,6 @@ function SearchCocktail(props) {
         e.preventDefault();
         const inputValue = document.getElementById('searchInput').value;
         let url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + inputValue;
-        if (props.selectedCategory.length > 1) {
-            url += "&c=" + props.selectedCategory;
-        }
         axios({
             url: url,
             method: "get",
@@ -24,19 +21,20 @@ function SearchCocktail(props) {
         });
     }
 
-    return (<>
-        <section>
-            <div className="ButtonInput">
-                <input id="searchInput" type="text"
-                       ref={searchInput}
-                       placeholder="Search here"
-                       className="SearchBox"
-                />
-                <button onClick={handleChange}/>
-            </div>
-        </section>
-        <Cocktail list={drinkList}/>
-    </>);
+    return (
+        <>
+            <section>
+                <div className="ButtonInput">
+                    <input id="searchInput" type="text"
+                           ref={searchInput}
+                           placeholder="Search here"
+                           className="SearchBox"
+                    />
+                    <button onClick={handleChange}/>
+                </div>
+            </section>
+            <Cocktail list={drinkList}/>
+        </>);
 }
 
 export default SearchCocktail;
