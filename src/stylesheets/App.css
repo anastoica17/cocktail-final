@@ -13,6 +13,10 @@
     color: white;
 }
 
+.App-title{
+    position: fixed;
+    height: 40px;
+}
 .App-link {
     color: #61dafb;
 }
@@ -26,5 +30,5 @@ nav {
 }
 
 main {
-    overflow-y: auto;
+    position: relative;
 }

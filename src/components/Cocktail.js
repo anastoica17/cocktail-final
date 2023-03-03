@@ -1,6 +1,7 @@
 import '../stylesheets/Cocktail.css';
 
 function Cocktail(props) {
+
     return (
         <>
             <section className="DrinksTable">

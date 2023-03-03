@@ -44,8 +44,7 @@ function Drinks() {
                 )}
             </ul>
         </>
-    )
-        ;
+    );
 }
 
 export default Drinks;

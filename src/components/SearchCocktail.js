@@ -8,7 +8,7 @@ function SearchCocktail() {
 
     const handleChange = async (e) => {
         e.preventDefault();
-        const inputValue = document.getElementById('searchInput').value;
+        const inputValue = searchInput.current.value;
         let url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + inputValue;
         axios({
             url: url,

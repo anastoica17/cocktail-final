@@ -1,14 +1,10 @@
-import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useLoaderData} from "react-router-dom";
 import Cocktail from "../components/Cocktail";
-import axios from "axios";
-import DrinksCategory from "../components/DrinksCategory";
 
 
 function DrinkDetail() {
-    const params = useParams();
-
-    return <DrinksCategory drinkId={params.drinksId}/>
+    const drinksData = useLoaderData();
+    return   <Cocktail list={drinksData}/>
 }
 
 export default DrinkDetail;
